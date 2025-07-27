@@ -45,7 +45,7 @@ export default function OurFeatures({ enabledTopSpace = false }) {
           </Grid>{' '}
           <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
             <Image
-              src="/images/our-featuers.webp"
+              src="/images/Black.png"
               alt="Features"
               width={720}
               height={825}

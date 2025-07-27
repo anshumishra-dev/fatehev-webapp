@@ -1,80 +1,43 @@
 'use client';
 import TitleBox from '@/ui/TitleBox';
-import { Box, CardMedia, Container, Typography } from '@mui/material';
+import { Box, CardMedia, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-// import required modules
-import { Autoplay, Pagination } from 'swiper/modules';
-import { productData } from '@/utils/data';
-import Image from 'next/image';
 import { Button } from '@/ui/Button';
-import { ArrowRightAlt, ArrowRightAltRounded } from '@mui/icons-material';
+import { ArrowRightAltRounded } from '@mui/icons-material';
 import Link from 'next/link';
-import { imageComming, lineWrap } from '@/style/style';
+import { imageComming } from '@/style/style';
+import { productData } from '@/utils/data';
 
-export default function FeaturedVehicles() {
+export default function FeaturedVehicles(disabledFooterBox) {
+  const cardColors = [
+    'rgb(224, 232, 253)',  // Very light blue
+    'rgba(255, 240, 233, 0.8)',  // Very light orange
+  ];
+
   return (
-    <Box component={'section'} sx={{ py: 10 }}>
-      <Container>
-        <TitleBox center subTitle={'Our Vehicles'}>
-          Wide Range of Products
-        </TitleBox>
-        <Box
-          sx={{
-            position: 'relative',
-            '--swiper-theme-color': '#FD0102',
-            '.swiper-pagination-bullet': {
-              bgcolor: 'primary.main',
-              opacity: 1,
-              borderRadius: 0,
-              width: 25,
-              height: 4,
-              transition: 'all 0.5s ease',
-            },
-            '.swiper-pagination-bullet-active': {
-              background: '#FD0102',
-            },
-          }}
-        >
-          <Swiper
-            pagination={true}
-            modules={[Pagination, Autoplay]}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            speed={700}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              600: {
-                slidesPerView: 2,
-              },
-              900: {
-                slidesPerView: 3,
-              },
-            }}
-          >
+    <Box title={'Our Products'} disabledFooterBox>
+      <Box my={7} component={'section'}>
+        <Container>
+          <TitleBox center subTitle={'The joy ride is for everyone.'}>
+            Our Featured Product
+          </TitleBox>
+
+          <Grid container spacing={4} mt={0}>
             {productData?.map((item, index) => (
-              <SwiperSlide key={index}>
+              <Grid item xs={12} key={index}>
                 <Box
                   sx={{
-                    mx: 2,
-                    mt: 3,
-                    mb: 4,
                     position: 'relative',
                     overflow: 'hidden',
-                    boxShadow: '0px 10px 15px 0px rgb(0 0 0 / 10%)',
+                    boxShadow: '0px -10px 15px -5px rgba(0,0,0,0.1), 0px 10px 15px 10px rgba(0,0,0,0.1)',
                     top: 0,
                     transition: 'all 0.5s ease',
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    borderRadius: 3,
                     ':hover': {
                       top: -10,
-                      boxShadow: '0px 10px 15px 0px rgb(0 0 0 / 20%)',
+                      boxShadow: '0px -15px 20px -5px rgba(0,0,0,0.1), 0px 15px 20px 0px rgba(0,0,0,0.2)',
                     },
                   }}
                 >
@@ -82,55 +45,100 @@ export default function FeaturedVehicles() {
                     sx={{
                       position: 'relative',
                       overflow: 'hidden',
-                      ':before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        background: 'rgba(0,0,0,0.2)',
-                        zIndex: 1,
-                      },
+                      width: { xs: '100%', md: '50%' },
+                      flexShrink: 0,
                       ...(item?.commingSoon && imageComming),
+                      borderTopLeftRadius: 3,
+                      borderTopRightRadius: { xs: 3, md: 0 },
+                      borderBottomLeftRadius: { xs: 0, md: 3 }
                     }}
                   >
                     <CardMedia
-                      component={'img'}
+                      component="img"
                       src={item?.featuredImage}
                       alt={item?.name}
-                      height={400}
-                      width={600}
+                      sx={{
+                        width: '100%',
+                        height: { xs: 300, md: 400 },
+                        objectFit: 'cover',
+                      }}
                       className="img-fluid"
                     />
                   </Box>
-                  <Box sx={{ px: 2, py: 2 }}>
-                    <Typography variant="h4" mb={1}>
+                  <Box 
+                    sx={{ 
+                      px: { xs: 2, sm: 4 },
+                      py: 3,
+                      width: { xs: '100%', md: '50%' },
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      backgroundColor: cardColors[index % cardColors.length],
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      borderBottomRightRadius: 3,
+                      borderTopRightRadius: { xs: 0, md: 3 },
+                      borderBottomLeftRadius: { xs: 3, md: 0 }
+                    }}
+                  >
+                    <Typography 
+                      variant="h4" 
+                      mb={1}
+                      sx={{
+                        fontWeight: 800,
+                        color: 'primary.dark',
+                        fontSize: { xs: '1.75rem', sm: '2rem' },
+                        letterSpacing: -0.5,
+                        lineHeight: 1.2
+                      }}
+                    >
                       {item?.name}
                     </Typography>
-                    <Typography variant="body1" mb={2} sx={lineWrap(3)}>
+                    <Typography 
+                      variant="body1" 
+                      mb={3}
+                      sx={{
+                        color: 'text.secondary',
+                        fontSize: '1.1rem',
+                        lineHeight: 1.6,
+                        fontWeight: 400
+                      }}
+                    >
                       {item?.description ||
                         'Experience the unmatchable power and efficiency. Trusted by millions of people.'}
                     </Typography>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      component={item?.commingSoon ? 'button' : Link} // Use 'component' for Material-UI's Button
-                      {...(!item?.commingSoon && {
-                        href: `/vehicles/${item?.slug}`,
-                      })} // Add href dynamically
-                      disabled={item?.commingSoon} // Disable the button if `commingSoon` is true
-                      endIcon={<ArrowRightAltRounded />}
-                    >
-                      {item?.commingSoon ? 'Coming Soon' : 'View Details'}
-                    </Button>
+                    <Box sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'flex-start' } }}>
+                      <Button
+                        variant="contained"
+                        size="medium"
+                        component={item?.commingSoon ? 'button' : Link}
+                        {...(!item?.commingSoon && {
+                          href: `/vehicles/${item?.slug}`,
+                        })}
+                        disabled={item?.commingSoon}
+                        endIcon={<ArrowRightAltRounded />}
+                        sx={{
+                          borderRadius: 2,
+                          fontWeight: 700,
+                          px: 4,
+                          py: 1.5,
+                          boxShadow: 2,
+                          '&:hover': {
+                            boxShadow: 4,
+                            transform: 'translateY(-2px)'
+                          }
+                        }}
+                      >
+                        {item?.commingSoon ? 'Coming Soon' : 'View Details'}
+                      </Button>
+                    </Box>
                   </Box>
                 </Box>
-              </SwiperSlide>
+              </Grid>
             ))}
-          </Swiper>
-        </Box>
-      </Container>
+          </Grid>
+        </Container>
+      </Box>
     </Box>
   );
 }

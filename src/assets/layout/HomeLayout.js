@@ -1,10 +1,14 @@
+"use client"
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 import TopTitleBar from './TopTitleBar';
 
 export default function HomeLayout({ children, title, disabledFooterBox }) {
+
+
+
   return (
     <>
       <Header />
@@ -23,6 +27,10 @@ export default function HomeLayout({ children, title, disabledFooterBox }) {
         {children}
       </Box>
       <Footer disabledFooterBox={disabledFooterBox} />
+
+
     </>
   );
 }
+
+

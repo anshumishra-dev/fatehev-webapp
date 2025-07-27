@@ -2,7 +2,14 @@ export const headerMenu = {
   manu: [
     { name: 'Home', url: '/' },
     { name: 'About', url: '/about' },
-    { name: 'Products', url: '/vehicles' },
+    {
+      name: 'Product',
+      url: '/vehicles',
+      children: [
+        { name: 'FatehEV Diamond', slug: 'fatehev-pro', },
+        { name: 'FatehEV Diamond', slug: 'fatehev-pro', },
+      ],
+    },
     { name: 'Gallery', url: '/gallery' },
     { name: 'Contact', url: '/contact' },
   ],
@@ -12,20 +19,24 @@ export const headerMenu = {
   },
 };
 
+
+
 export const herobarData = [
   {
     subTitle: 'Welcome To FatehEV',
     title: 'Your Best New Eco-Friendly Ride With FatehEV',
-    image: '/images/herobar/fatehev-slide-1.jpg',
+    image: '/images/herobar/Slider01.jpg',
     bgImage: '/images/herobar/bg1.webp',
   },
   {
     subTitle: 'Welcome To FatehEV',
     title: 'Your Best New Eco-Friendly Ride With FatehEV',
-    image: '/images/herobar/fatehev-slide-2.jpg',
+    image: '/images/herobar/Slider02.jpg',
     bgImage: '/images/herobar/bg1.webp',
   },
 ];
+
+
 
 export const productData = [
   {

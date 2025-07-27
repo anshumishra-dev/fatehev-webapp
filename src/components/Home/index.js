@@ -8,14 +8,18 @@ import Quickcontact from './quickcontact';
 import OurFeatures from './OurFeatures';
 import Contact from './Contact';
 import Logo from './Logo';
+import Animated from './AnimatedImage';
+import DealershipFormModal from './DealerShip';
 
 export default function Home() {
   return (
     <HomeLayout>
       <HeroBar />
+      {/* <Animated /> */}
+      <DealershipFormModal />
+      <Logo />
       <AboutDetails />
       <WhyUs />
-      <Logo />
       <FeaturedVehicles />
       <Quickcontact />
       <OurFeatures enabledTopSpace />

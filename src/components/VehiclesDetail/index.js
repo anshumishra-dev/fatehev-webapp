@@ -4,7 +4,6 @@ import { webInfo } from '@/utils';
 import { CheckRounded } from '@mui/icons-material';
 import {
   Box,
-  CardMedia,
   Container,
   Grid,
   Stack,
@@ -265,3 +264,6 @@ export default function VehiclesDetail({ data }) {
     </HomeLayout>
   );
 }
+
+
+

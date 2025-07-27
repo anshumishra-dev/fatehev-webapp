@@ -6,61 +6,75 @@ import Link from 'next/link';
 import React from 'react';
 
 export default function AboutDetails({ disabledButton = false }) {
+
+  const primaryColor = 'rgb(21,71,122)';
+  
   return (
     <Container component={'section'}>
       <Box
         sx={{
-          py: 8,
-          img: { maxWidth: 450 },
+          py: 7,
           position: 'relative',
-          '.fx-box': {
-            bgcolor: 'primary.light',
-            color: '#fff',
-            height: 150,
-            width: 150,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            borderRadius: '100%',
-            span: { display: 'block', fontSize: 14 },
-            border: '2px dashed  #fff',
-            boxShadow: '0px 0px 0px 5px rgb(21,71,122)',
-            position: 'absolute',
-            top: '30%',
-            left: '80%',
-            transform: 'translate(-50%,-50%)',
-          },
         }}
       >
         <Grid container spacing={6}>
           <Grid item md={6} xs={12}>
-            <Box sx={{ display: 'inline-block', position: 'relative' }}>
+            <Box 
+              sx={{ 
+                display: 'inline-block', 
+                position: 'relative',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+                transition: 'all 0.3s ease',
+                border: '5px solid white', // Reverted to original white border
+                height: '460px',
+                width: '100%',
+                '&:hover': {
+                  boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
+                },
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: `linear-gradient(45deg, ${primaryColor}10 0%, rgba(255,255,255,0.1) 100%)`,
+                  zIndex: 1,
+                }
+              }}
+            >
               <CardMedia
                 component={'img'}
-                src="/images/about.webp"
-                width={500}
-                height={500}
+                src="/images/about-us-image.jpg"
                 alt="about"
-                className="img-fluid"
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'block',
+                  objectFit: 'cover',
+                  transition: 'transform 0.5s ease',
+                  '&:hover': {
+                    transform: 'scale(1.03)',
+                  }
+                }}
               />
-              <Box className="fx-box">
-                <Typography variant="h2" component={'p'}>
-                  150+
-                  <span>Happy Customer</span>
-                </Typography>
-              </Box>
             </Box>
-          </Grid>{' '}
+          </Grid>
           <Grid item md={6} xs={12}>
-            {/* <TitleBox subTitle={'About Us'} sx={{ h2: { fontSize: 26 } }}>
-              FatehEV Driving a Greener Future on Indian Roads
-            </TitleBox>  */}
-            <TitleBox subTitle={'About Us'} sx={{ h2: { fontSize: 26 } }}>
+            <TitleBox 
+              subTitle={'About Us'} 
+              sx={{ 
+                h2: { 
+                  fontSize: 26,
+                  color: primaryColor 
+                } 
+              }}
+            >
               We Have Chance Financing (Funding) For Dealers
             </TitleBox>
-            <Typography variant="body1"></Typography>{' '}
-            <Typography variant="body1">
+            <Typography variant="body1" mb={2}>
               At Fateh EV, we're more than just a company; we're a movement
               towards a cleaner, greener, and more sustainable future. Founded
               in 2023 and based in India, we operate under the esteemed Sidana
@@ -103,3 +117,4 @@ export default function AboutDetails({ disabledButton = false }) {
     </Container>
   );
 }
+
