@@ -9,7 +9,7 @@ export default function Logo() {
   const data = [
     {
       name: 'Livguard',
-      src: '/images/vendors/livguards.webp',
+      src: '/images/vendors/liv-guards.webp',
     },
     {
       name: 'Tata Steel',
