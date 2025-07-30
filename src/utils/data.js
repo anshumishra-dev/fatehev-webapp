@@ -44,7 +44,7 @@ export const productData = [
   {
     name: 'Fateh Diamond MS',
     image: '',
-    featuredImage: '/images/diamond ms/Fateh Diamond MS.jpg',
+    featuredImage: '/images/diamond ms/fateh-diamond-ms.jpg',
     gallery: ['/images/products/product-2.webp'],
     description:
       'The epitome of performance and reliability, the FatehEV Pro is our premium offering, equipped with advanced features for those who seek the best.',
@@ -128,7 +128,7 @@ export const productData = [
   {
     name: 'Fateh Diamond SS',
     image: '',
-    featuredImage: '/images/diamond ss/Fateh Diamond SS.jpg',
+    featuredImage: '/images/diamond ss/fateh-diamond-ss.jpg',
     gallery: ['/images/products/product-2.webp'],
     description:
       'The epitome of performance and reliability, the FatehEV Pro is our premium offering, equipped with advanced features for those who seek the best.',
@@ -212,7 +212,7 @@ export const productData = [
   {
     name: 'Fateh Silver MS',
     image: '',
-    featuredImage: '/images/silver ms/Fateh silver MS.jpg',
+    featuredImage: '/images/silver ms/fateh-silver-ms.jpg',
     description:
       'Perfect for budget-conscious buyers, this model balances cost with efficiency, making it an excellent choice for everyday use.',
     slug: 'fateh-silver-ms',
@@ -296,7 +296,7 @@ export const productData = [
   {
     name: 'Fateh Silver SS',
     image: '',
-    featuredImage: '/images/silver ss/Fateh silver SS.jpg',
+    featuredImage: '/images/silver ss/fateh-silver-ss.jpg',
     description:
       'Built for businesses, this robust model is designed to handle heavy loads, making it ideal for vendors, small businesses, and logistics.',
     slug: 'fateh-silver-ss',
