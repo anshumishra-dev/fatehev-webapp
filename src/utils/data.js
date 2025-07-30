@@ -6,8 +6,10 @@ export const headerMenu = {
       name: 'Product',
       url: '/vehicles',
       children: [
-        { name: 'FatehEV Diamond', slug: 'fatehev-pro', },
-        { name: 'FatehEV Diamond', slug: 'fatehev-pro', },
+        { name: 'Fateh Diamond MS', slug: 'fateh-diamond-ms', },
+        { name: 'Fateh Diamond SS', slug: 'fateh-diamond-ss', },
+        { name: 'Fateh Silver MS', slug: 'fateh-silver-ms', },
+        { name: 'Fateh Silver SS', slug: 'fateh-silver-ss', },
       ],
     },
     { name: 'Gallery', url: '/gallery' },
@@ -40,13 +42,13 @@ export const herobarData = [
 
 export const productData = [
   {
-    name: 'FatehEV Diamond',
+    name: 'Fateh Diamond MS',
     image: '',
-    featuredImage: '/images/products/product-1.webp',
+    featuredImage: '/images/diamond ms/Fateh Diamond MS.jpg',
     gallery: ['/images/products/product-2.webp'],
     description:
       'The epitome of performance and reliability, the FatehEV Pro is our premium offering, equipped with advanced features for those who seek the best.',
-    slug: 'fatehev-pro',
+    slug: 'fateh-diamond-ms',
     features: {
       overview: [
         {
@@ -124,13 +126,13 @@ export const productData = [
     },
   },
   {
-    name: 'FatehEV Diamond',
+    name: 'Fateh Diamond SS',
     image: '',
-    featuredImage: '/images/products/product-1.webp',
+    featuredImage: '/images/diamond ss/Fateh Diamond SS.jpg',
     gallery: ['/images/products/product-2.webp'],
     description:
       'The epitome of performance and reliability, the FatehEV Pro is our premium offering, equipped with advanced features for those who seek the best.',
-    slug: 'fatehev-pro',
+    slug: 'fateh-diamond-ss',
     features: {
       overview: [
         {
@@ -208,12 +210,12 @@ export const productData = [
     },
   },
   {
-    name: 'FatehEV Silver',
+    name: 'Fateh Silver MS',
     image: '',
-    featuredImage: '/images/products/product-2.webp',
+    featuredImage: '/images/silver ms/Fateh silver MS.jpg',
     description:
       'Perfect for budget-conscious buyers, this model balances cost with efficiency, making it an excellent choice for everyday use.',
-    slug: 'fatehev-plus',
+    slug: 'fateh-silver-ms',
     features: {
       overview: [
         {
@@ -289,15 +291,15 @@ export const productData = [
         `BEST HANDLE CUTTING FOR EASY DRIVE`,
       ],
     },
-    commingSoon: true,
+    // commingSoon: true,
   },
   {
-    name: 'FatehEV Gold',
+    name: 'Fateh Silver SS',
     image: '',
-    featuredImage: '/images/products/product-3.webp',
+    featuredImage: '/images/silver ss/Fateh silver SS.jpg',
     description:
       'Built for businesses, this robust model is designed to handle heavy loads, making it ideal for vendors, small businesses, and logistics.',
-    slug: 'fatehev-garbage',
+    slug: 'fateh-silver-ss',
     features: {
       overview: [
         {
@@ -373,7 +375,7 @@ export const productData = [
         `BEST HANDLE CUTTING FOR EASY DRIVE`,
       ],
     },
-    commingSoon: true,
+    // commingSoon: true,
   },
   {
     name: 'FatehEV Cargo(Loader)',
@@ -460,7 +462,7 @@ export const productData = [
     commingSoon: true,
   },
   {
-    name: 'Fateh Grabage Loader',
+    name: 'Fateh Garbage Loader',
     image: '',
     featuredImage: '/images/products/product-3.webp',
     description:

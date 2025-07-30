@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Logo from './Logo';
 import Animated from './AnimatedImage';
 import DealershipFormModal from './DealerShip';
+import RickshawRange from './RickshawRange';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       {/* <Animated /> */}
       <DealershipFormModal />
       <Logo />
+      <RickshawRange />
       <AboutDetails />
       <WhyUs />
       <FeaturedVehicles />

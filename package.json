@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.15.11",
     "@mui/material": "^5.15.11",
     "@mui/material-nextjs": "^5.15.11",
+    "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.6.7",
     "lightbox.js-react": "^1.2.3",
     "next": "14.1.1",

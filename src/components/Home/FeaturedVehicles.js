@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { imageComming } from '@/style/style';
 import { productData } from '@/utils/data';
 
-export default function FeaturedVehicles(disabledFooterBox) {
+export default function FeaturedVehicles() {
   const cardColors = [
     'rgb(224, 232, 253)',  // Very light blue
     'rgba(255, 240, 233, 0.8)',  // Very light orange
