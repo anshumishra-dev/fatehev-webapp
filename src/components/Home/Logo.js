@@ -2,7 +2,8 @@
 import TitleBox from '@/ui/TitleBox';
 import { webInfo } from '@/utils';
 import React from 'react';
-import { Box, Container, Typography, alpha } from '@mui/material';
+// ✅ Import Container
+import { Box, Typography, alpha, Container } from '@mui/material';
 import Image from 'next/image';
 
 export default function Logo() {
@@ -24,7 +25,7 @@ export default function Logo() {
       src: '/images/vendors/akira.webp',
       customSize: true,
       xsSize: { width: 70, height: 35 },
-      mdSize: { width: 100, height: 50 }
+      mdSize: { width: 100, height: 50 },
     },
     {
       name: 'Leader Energy To Perform',
@@ -45,100 +46,115 @@ export default function Logo() {
   ];
 
   // Colors from your theme
-  const primaryColor = "#0A3560"; // Dark blue
-  const secondaryColor = "#FD0102"; // Red
-  const accentColor = "#F7B500"; // Gold
+  const primaryColor = '#0A3560'; // Dark blue
+  const secondaryColor = '#FD0102'; // Red
+  const accentColor = '#F7B500'; // Gold
+  const cardBg = `linear-gradient(135deg, ${alpha(
+    primaryColor,
+    0.03
+  )} 0%, ${alpha(accentColor, 0.03)} 100%)`;
 
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 1, md: 4 },
-        position: 'relative',
-        overflow: 'hidden',
-        background: `linear-gradient(135deg, ${alpha(primaryColor, 0.03)} 0%, ${alpha(accentColor, 0.03)} 100%)`,
-        '&:before, &:after': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          width: { xs: '40px', sm: '60px', md: '100px' },
-          zIndex: 2,
-          background: `linear-gradient(90deg, ${alpha(primaryColor, 0.1)} 0%, transparent 100%)`
-        },
-        '&:before': {
-          left: 0,
-        },
-        '&:after': {
-          right: 0,
-          transform: 'rotate(180deg)',
-        }
-      }}
-    >
-      <Container>
+    <Container maxWidth="xl" sx={{ py: { xs: 2, md: 4 } }}>
+      <Box
+        component="section"
+        sx={{
+          position: 'relative',
+          overflow: 'hidden',
+          background: cardBg,
+          maxWidth: '1600px',
+          mx: 'auto',
+          borderRadius: 4,
+          py: 3,
+          boxShadow: '0 30px 60px rgba(10, 28, 45, 0.15)',
+        }}
+      >
         <TitleBox
-        center
+          center
           subTitle="Our Trusted Partners"
-          sx={{ 
-            h2: { 
+          sx={{
+            px: 2,
+            h2: {
               fontSize: { xs: '1.5rem', md: '2.25rem' },
               color: primaryColor,
               textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-              mb: 4
+              mb: 4,
             },
             h6: {
               color: accentColor,
               fontWeight: 600,
-              letterSpacing: '1px'
-            }
+              letterSpacing: '1px',
+            },
           }}
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
         >
-          Premium Vendors of {webInfo?.name || "FatehEV"}
+          Premium Vendors of {webInfo?.name || 'FatehEV'}
         </TitleBox>
-        
+
         {/* Animation Container */}
-        <Box sx={{
-          position: 'relative',
-          height: { xs: 80, md: 140 },
-          overflow: 'hidden',
-          mb: { xs: 1, md: 2 },
-          mx: 'auto',
-          maxWidth: '1600px'
-        }}>
-          {/* Scrolling Content */}
-          <Box sx={{
-            display: 'flex',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: '100%',
-            animation: 'scroll 30s linear infinite',
-            '@keyframes scroll': {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' }
+        <Box
+          sx={{
+            position: 'relative',
+            height: { xs: 80, md: 140 },
+            overflow: 'hidden',
+            mb: { xs: 1, md: 2 },
+            mx: 'auto',
+            // ✅ Add pseudo-elements for the fade effect
+            '&::before, &::after': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              zIndex: 2,
+              width: { xs: '50px', md: '100px' },
+              // This gradient fades from the card's background to transparent
+              background: `linear-gradient(to right, rgba(251, 252, 253, 1) 20%, rgba(251, 252, 253, 0))`,
             },
-            '&:hover': {
-              animationPlayState: 'paused'
-            }
-          }}>
-            {/* Double the content for seamless looping */}
+            '&::before': {
+              left: 0,
+            },
+            '&::after': {
+              right: 0,
+              transform: 'scaleX(-1)', // Flip the gradient for the right side
+            },
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              height: '100%',
+              animation: 'scroll 30s linear infinite',
+              '@keyframes scroll': {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              '&:hover': {
+                animationPlayState: 'paused',
+              },
+            }}
+          >
             {[...data, ...data].map((item, index) => {
-              // Calculate image dimensions based on screen size
               let imgWidth, imgHeight;
-              
+
               if (item.customSize) {
-                // Use custom sizes for Akira
-                imgWidth = { xs: item.xsSize?.width || 70, md: item.mdSize?.width || 100 };
-                imgHeight = { xs: item.xsSize?.height || 35, md: item.mdSize?.height || 50 };
+                imgWidth = {
+                  xs: item.xsSize?.width || 70,
+                  md: item.mdSize?.width || 100,
+                };
+                imgHeight = {
+                  xs: item.xsSize?.height || 35,
+                  md: item.mdSize?.height || 50,
+                };
               } else {
-                // Default sizes for other logos
                 imgWidth = { xs: 100, md: 150 };
                 imgHeight = { xs: 50, md: 75 };
               }
-              
+
               return (
                 <Box
                   key={index}
@@ -153,22 +169,25 @@ export default function Logo() {
                     borderRadius: 2,
                     border: `1px solid ${alpha(primaryColor, 0.1)}`,
                     transition: 'all 0.3s',
+                    boxShadow: '0 3px 10px rgba(10, 28, 45, 0.1)',
                     '&:hover': {
                       transform: 'translateY(-5px)',
-                      boxShadow: `0 6px 15px ${alpha(primaryColor, 0.15)}`,
+                      boxShadow: `0 6px 15px ${alpha(primaryColor, 0.2)}`,
                       bgcolor: alpha(accentColor, 0.05),
                       borderColor: alpha(accentColor, 0.3),
-                    }
+                    },
                   }}
                 >
-                  <Box sx={{
-                    position: 'relative',
-                    width: imgWidth,
-                    height: imgHeight,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      width: imgWidth,
+                      height: imgHeight,
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
                     <Image
                       src={item.src}
                       alt={item.name}
@@ -186,7 +205,7 @@ export default function Logo() {
             })}
           </Box>
         </Box>
-      </Container>
-    </Box>
+      </Box>
+    </Container>
   );
 }

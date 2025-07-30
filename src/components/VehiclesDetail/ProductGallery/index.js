@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Box, CardMedia, Typography } from '@mui/material';
 
-const ProductGallery = () => {
+const ProductGallery = ({data}) => {
   const [selectedColor, setSelectedColor] = useState('choclate'); 
   
   // Brand color scheme
@@ -11,7 +11,7 @@ const ProductGallery = () => {
   const white = '#ffffff';
   const darkLight = '#757575';
   
-  const colorImages = {
+  const staticImages = {
     red: '/images/products/_DSC8900.png',
     choclate: '/images/products/_DSC8902.png',
     lightgreen: '/images/products/_DSC8903.png',
@@ -24,7 +24,7 @@ const ProductGallery = () => {
     choclate: '#212121',
     lightgreen: '#2E7D32',
     green: '#00695C',
-    purple: '#4A148C'
+    purple: '#1502a6'
   };
 
   const colorNames = {
@@ -34,6 +34,31 @@ const ProductGallery = () => {
     lightgreen: "Camo Green",
     purple: "Purple"
   };
+
+  // Map from backend data: detect color in file name
+  const backendImagesByColor = useMemo(() => {
+    const map = {};
+    if (Array.isArray(data)) {
+      data.forEach((item) => {
+        const imgLower = item.image.toLowerCase();
+        if (imgLower.includes('red')) map.red = item.image;
+        else if (imgLower.includes('black') || imgLower.includes('choclate')) map.choclate = item.image;
+        else if (imgLower.includes('green') && imgLower.includes('light')) map.lightgreen = item.image;
+        else if (imgLower.includes('green')) map.green = item.image;
+        else if (imgLower.includes('purple')) map.purple = item.image;
+      });
+    }
+    return map;
+  }, [data]);
+
+// Merge backend images with static fallback
+const colorImages = {
+  red: backendImagesByColor.red || staticImages.red,
+  choclate: backendImagesByColor.choclate || staticImages.choclate,
+  lightgreen: backendImagesByColor.lightgreen || staticImages.lightgreen,
+  green: backendImagesByColor.green || staticImages.green,
+  purple: backendImagesByColor.purple || staticImages.purple
+};
 
   return (
     <Box

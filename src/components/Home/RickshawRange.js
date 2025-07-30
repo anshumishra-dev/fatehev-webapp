@@ -9,10 +9,10 @@ import "@splidejs/react-splide/css";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { productData } from "@/utils/data";
-// Brand color scheme
-const primaryColor = "#0A3560";
-const secondaryColor = "#FD0102";
-const accentColor = "#F7B500";
+import { webInfo } from "@/utils";
+const primaryColor = webInfo.colors.primary.main;
+const secondaryColor = webInfo.colors.secondary.main;
+const accentColor = webInfo.colors.accent.main;
 
 const RickshawRange = () => {
   const products = productData
@@ -20,7 +20,7 @@ const RickshawRange = () => {
 
   const splideRef = useRef(null);
   const [activeDot, setActiveDot] = useState(0);
-  const perPage = 2; // Or whatever default you're targeting
+  const perPage = 2; 
   const totalIndicators =
     products.length > perPage ? Math.ceil(products.length - perPage + 2) : 2;
 
@@ -41,20 +41,21 @@ const RickshawRange = () => {
         py: 2,
       }}
     >
-      {/* Beautiful Card Container */}
+      {/*  Card Container */}
       <Box
         sx={{
           position: "relative",
+          mx: "auto",
+          zIndex: 2,
+          boxShadow: "0 -6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.08)",
           borderRadius: 4,
           overflow: "hidden",
-          boxShadow: "0 30px 60px rgba(10, 28, 45, 0.15)",
-          background: "linear-gradient(to bottom, #f9fbfd, #ffffff)",
           py: 4,
-          textAlign: "center",
-          zIndex: 1,
+          borderTop: `1px solid ${primaryColor}20`, // Subtle top border
+          borderBottom: `1px solid ${primaryColor}10`, // Subtle bottom border
+          background: `linear-gradient(to bottom, ${primaryColor}03, ${secondaryColor}02)`, // Light gradient background
         }}
       >
-        {/* Decorative elements */}
         <Box
           sx={{
             position: "absolute",
@@ -62,7 +63,7 @@ const RickshawRange = () => {
             right: 0,
             width: "40%",
             height: "100%",
-            background: `linear-gradient(45deg, ${primaryColor}20, ${secondaryColor}10)`,
+            background: `linear-gradient(45deg, ${primaryColor}15, ${secondaryColor}08)`, // More transparent
             boxShadow: "0 -8px 20px rgba(10, 28, 45, 0.15)",
             clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
             zIndex: 0,
@@ -76,20 +77,19 @@ const RickshawRange = () => {
             left: 0,
             width: "30%",
             height: "60%",
-            background: `linear-gradient(45deg, ${accentColor}15, ${secondaryColor}10)`,
+            background: `linear-gradient(45deg, ${accentColor}10, ${secondaryColor}05)`, // More transparent
             clipPath: "polygon(0 100%, 0 0, 100% 100%)",
             zIndex: 0,
           }}
         />
 
-        {/* Header Section */}
         <TitleBox
           subTitle={"RANGE"}
           center
           sx={{
             h2: {
               color: primaryColor,
-              mb: 5,
+              mb: 4,
             },
           }}
         >
@@ -100,25 +100,25 @@ const RickshawRange = () => {
         <Box
           sx={{
             position: "relative",
-            maxWidth: "1600px",
+            width: "100%",
             mx: "auto",
-            px: { xs: 0, md: 4 },
+            px: { xs: 0, md: 1.5 },
             zIndex: 2,
+            overflow: "hidden",
           }}
         >
           <Splide
             ref={splideRef}
             hasTrack={false}
             options={{
-              start: 0, // Add this to ensure starting from first slide
-              type: "slide", // Changed from loop
+              start: 0, 
               type: "loop",
               perPage: 3,
               focus: "start",
-              gap: "32px",
+              gap: "10px",
               pagination: false,
-               align: "start", // Align slides to left
-            padding: { left: 0 }, // Ensure first slide touches container edge
+              align: "start", 
+              padding: { left: 0 }, 
               arrows: false,
               breakpoints: {
                 1200: { perPage: 2, gap: "24px" },
@@ -239,7 +239,7 @@ const RickshawRange = () => {
                       height: 500,
                       borderRadius: "14px",
                       overflow: "hidden",
-                      boxShadow: "0 20px 50px rgba(56, 74, 93, 0.2)",
+                      // boxShadow: "0 20px 50px rgba(56, 74, 93, 0.2)",
                       position: "relative",
                       background: "white",
                       transition:
@@ -255,9 +255,10 @@ const RickshawRange = () => {
                       alt={product.name}
                       sx={{
                         width: "100%",
-                        height: 320,
+                        height: 420,
                         objectFit: "cover",
                         transition: "transform 0.5s ease",
+                        borderRadius: "14px 14px 0 0",
                         borderBottom: `1px solid ${primaryColor}`,
                       }}
                     />
@@ -266,12 +267,12 @@ const RickshawRange = () => {
                     <Box
                       sx={{
                         position: "absolute",
-                        top: 0,
+                        top: 20,
                         left: 0,
                         right: 0,
                         height: "100%",
                         background:
-                          "linear-gradient(to top, rgba(10,53,96,0.85) 30%, transparent 50%)",
+                          `linear-gradient(to top, rgba(10,53,96,0.85) 19%, transparent 26%)`,
                         zIndex: 2,
                       }}
                     />
@@ -288,7 +289,7 @@ const RickshawRange = () => {
                         textAlign: "center",
                       }}
                     >
-                      <Box
+                      {/* <Box
                         sx={{
                           background: "rgba(255,255,255,0.15)",
                           backdropFilter: "blur(4px)",
@@ -323,11 +324,19 @@ const RickshawRange = () => {
                             textShadow: "0 1px 2px rgba(0,0,0,0.5)",
                           }}
                         >
-                          {/* {product.tagline} */}
+                           {product.tagline} 
                         </Typography>
-                      </Box>
+                      </Box>  */}
 
-                      <Box sx={{ mt: 2 }}>
+                      <Box sx={{
+                          position: "absolute",
+                          bottom: 14.5,
+                          left: 0,
+                          right: 0,
+                          display: "flex",
+                          justifyContent: "center",
+                          pointerEvents: "auto", // Enable clicks on button
+                        }}>
                         <Button
                           className="product-button"
                           component={Link}
@@ -375,7 +384,7 @@ const RickshawRange = () => {
                             },
                           }}
                         >
-                          VIEW DETAILS
+                           {product.name}
                         </Button>
                       </Box>
                     </Box>
@@ -410,13 +419,13 @@ const RickshawRange = () => {
                 height: 10,
                 borderRadius: "50%",
                 background:
-                  activeDot === index ? "rgba(21, 71, 122, 0.8)" : "#D0D0D0",
-                border: "1px solid #174ea6",
+                  activeDot === index ? primaryColor : "#D0D0D0",
+                border: `1px solid ${primaryColor}`,
                 transition: "all 0.3s ease",
                 transform: activeDot === index ? "scale(1.3)" : "scale(1)",
                 cursor: "pointer",
                 "&:hover": {
-                  background: `linear-gradient(135deg, #174ea6, #2563EB)`,
+                  background: `linear-gradient(135deg, ${webInfo.colors.primary.light}, ${primaryColor})`,
                 },
               }}
               onClick={() => {

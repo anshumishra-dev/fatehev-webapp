@@ -30,6 +30,10 @@ Road, Muzaffarnagar, Uttar Pradesh, India 251001`,
       main: '#FD0102',
       dark: '#b40d0e',
     },
+    //new color 
+    accent: {
+      main: '#F7B500',
+    },
     white: {
       main: '#fff',
       dark: '#f7f7f7',
