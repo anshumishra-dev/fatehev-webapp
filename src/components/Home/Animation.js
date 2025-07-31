@@ -19,37 +19,34 @@ const moveForward = keyframes`
   }
 `;
 
-// Styled components with shadow effects
 const AnimationContainer = styled(Box)({
-  width: '100%',
-  height: '250px',
-  backgroundImage: "url('/images/Moving Slider Image.png')",
-  backgroundRepeat: 'repeat-x',
-  backgroundSize: 'auto 100%',
-  position: 'relative',
-  overflow: 'hidden',
-  animation: `${scrollLeft} 25s linear infinite`,
-  
-  // Shadow effects
-  '&::before, &::after': {
-    content: '""',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    height: '40px',
-    zIndex: 2,
-    pointerEvents: 'none',
-  },
-  '&::before': {
-    top: 0,
-    background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
-  },
-  '&::after': {
-    bottom: 0,
-    background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%)',
-  }
-});
-
+    height: { xs: '180px', md: '250px' }, 
+    width: '100%',
+    backgroundImage: "url('/images/Moving Slider Image.png')",
+    backgroundRepeat: 'repeat-x',
+    backgroundSize: 'auto 100%',
+    position: 'relative',
+    overflow: 'hidden',
+    animation: `${scrollLeft} 25s linear infinite`,
+    
+    '&::before, &::after': {
+      content: '""',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      height: '40px',
+      zIndex: 2,
+      pointerEvents: 'none',
+    },
+    '&::before': {
+      top: 0,
+      background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%)',
+    },
+    '&::after': {
+      bottom: 0,
+      background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 100%)',
+    }
+  });
 const AnimatedElement = styled('img')({
   position: 'absolute',
   bottom: '6px',
