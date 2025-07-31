@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 import TopTitleBar from './TopTitleBar';
+import Animation from '@/components/Home/Animation';
 
 export default function HomeLayout({ children, title, disabledFooterBox }) {
 
@@ -27,7 +28,7 @@ export default function HomeLayout({ children, title, disabledFooterBox }) {
         {children}
       </Box>
       <Footer disabledFooterBox={disabledFooterBox} />
-
+      <Animation />
 
     </>
   );

@@ -11,13 +11,13 @@ const ProductGallery = ({data}) => {
   const white = '#ffffff';
   const darkLight = '#757575';
   
-  const staticImages = {
-    red: '/images/products/_DSC8900.png',
-    choclate: '/images/products/_DSC8902.png',
-    lightgreen: '/images/products/_DSC8903.png',
-    green: '/images/products/_DSC89004.png',
-    purple: '/images/products/_DSC89001.png'
-  };
+  // const staticImages = {
+  //   red: '/images/products/_DSC8900.png',
+  //   choclate: '/images/products/_DSC8902.png',
+  //   lightgreen: '/images/products/_DSC8903.png',
+  //   green: '/images/products/_DSC89004.png',
+  //   purple: '/images/products/_DSC89001.png'
+  // };
 
   const colorSwatches = {
     red: '#C62828',
@@ -53,11 +53,11 @@ const ProductGallery = ({data}) => {
 
 // Merge backend images with static fallback
 const colorImages = {
-  red: backendImagesByColor.red || staticImages.red,
-  choclate: backendImagesByColor.choclate || staticImages.choclate,
-  lightgreen: backendImagesByColor.lightgreen || staticImages.lightgreen,
-  green: backendImagesByColor.green || staticImages.green,
-  purple: backendImagesByColor.purple || staticImages.purple
+  red: backendImagesByColor.red,
+  choclate: backendImagesByColor.choclate,
+  lightgreen: backendImagesByColor.lightgreen,
+  green: backendImagesByColor.green,
+  purple: backendImagesByColor.purple
 };
 
   return (

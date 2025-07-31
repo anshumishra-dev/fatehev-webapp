@@ -8,15 +8,15 @@ import Quickcontact from './quickcontact';
 import OurFeatures from './OurFeatures';
 import Contact from './Contact';
 import Logo from './Logo';
-import Animated from './AnimatedImage';
 import DealershipFormModal from './DealerShip';
 import RickshawRange from './RickshawRange';
+import Animation from './Animation';
 
 export default function Home() {
   return (
     <HomeLayout>
       <HeroBar />
-      {/* <Animated /> */}
+      <Animation />
       <DealershipFormModal />
       <Logo />
       <RickshawRange />
