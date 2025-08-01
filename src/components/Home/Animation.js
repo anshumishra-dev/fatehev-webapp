@@ -28,7 +28,7 @@ const AnimationContainer = styled(Box)({
   backgroundSize: 'auto 100%',
   position: 'relative',
   overflow: 'hidden',
-  animation: `${scrollLeft} 25s linear infinite`,
+  animation: `${scrollLeft} 35s linear infinite`,
   '@media (max-width: 900px)': {
     height: '180px', // Height on screens 900px or smaller
   },
@@ -55,7 +55,7 @@ const AnimationContainer = styled(Box)({
 
 const AnimatedElement = styled('img')({
   position: 'absolute',
-  bottom: '6px',
+  bottom: '-5px',
   right: '-200px',
   animationName: `${moveForward}`,
   animationTimingFunction: 'linear',
@@ -95,6 +95,7 @@ export default function AnimationShowcasePage() {
           animationDuration: '15s',
           animationDelay: '5s',
           transform: 'scaleX(-1)',
+          bottom: "1px",
         }}
       />
     </AnimationContainer>
