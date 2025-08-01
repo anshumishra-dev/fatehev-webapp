@@ -300,13 +300,15 @@ const DealershipFormModal = () => {
                   onChange={handleChange}
                   label="Select a Model"
                 >
-                  <MenuItem value="the-ld">FatehEV Diamond</MenuItem>
-                  <MenuItem value="goreen">FatehEV Silver</MenuItem>
-                  <MenuItem value="panther">FatehEV Gold</MenuItem>
-                  <MenuItem value="super-deluxe">
+                  <MenuItem value="the-ld">Fateh Diamond MS</MenuItem>
+                  <MenuItem value="the-ld">Fateh Diamond SS</MenuItem>
+                  <MenuItem value="goreen">Fateh Silver MS</MenuItem>
+                  <MenuItem value="goreen">Fateh Silver SS</MenuItem>
+                  {/* <MenuItem value="panther">FatehEV Gold</MenuItem> */}
+                  {/* <MenuItem value="super-deluxe">
                     FatehEV Cargo(Loader)
-                  </MenuItem>
-                  <MenuItem value="super-deluxe">Fateh Grabage Loader</MenuItem>
+                  </MenuItem> */}
+                  {/* <MenuItem value="super-deluxe">Fateh Grabage Loader</MenuItem> */}
                 </Select>
               </FormControl>
               <FormControl fullWidth required sx={{ mb: 2 }} variant="standard">
